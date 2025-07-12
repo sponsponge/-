@@ -1,0 +1,1119 @@
+/* Google Fonts: Playfair Display (для заголовків) та Lato (для основного тексту) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+
+/* CSS Variables for Themes */
+:root {
+    /* Light Theme Colors (Default) */
+    --body-bg: #f8f6f5; /* Дуже світлий, майже бежевий пастельний */
+    --text-color: #4a4a4a; /* М'який сірий текст */
+    --heading-color-light: #7d6e83; /* Глибокий пастельний фіолетовий для заголовків */
+    --heading-color-dark: #9c89a0; /* Трохи світліший фіолетовий для H1 */
+    --subtitle-color: #888; /* Світло-сірий для підзаголовка */
+    --main-bg: #ffffff; /* Чистий білий фон основного контенту */
+    --section-bg: #fcfaff; /* Дуже світлий фіолетовий фон для секцій віршів/змісту */
+    --header-bg-start: #ece0e6; /* Початковий колір градієнту шапки */
+    --header-bg-end: #e0d0d6; /* Кінцевий колір градієнту шапки */
+    --link-color: #6a5acd; /* Філоетовий текст посилання */
+    --link-hover-color: #483d8b; /* Темніший фіолетовий при наведенні */
+    --filter-btn-bg: #e6e0eb; /* Пастельний сіро-фіолетовий для кнопок */
+    --filter-btn-text: #6a5acd; /* Текст кнопок */
+    --filter-btn-active-bg: #a787bd; /* Активний колір кнопок */
+    --filter-btn-active-text: white; /* Текст активних кнопок */
+    --footer-bg: #e0e6f2; /* Пастельний блакитний для футера */
+    --search-bg: #fff; /* Білий фон для контейнера пошуку */
+    --search-icon-bg: #9c89a0; /* Колір фону іконки пошуку */
+    --search-icon-hover-bg: #7d6e83; /* Колір фону іконки пошуку при наведенні */
+    --search-text-color: #4a4a4a; /* Колір тексту в полі пошуку */
+    --date-color: #a0a0a0; /* Колір дати вірша */
+    --divider-color: #eee; /* Колір розділювача */
+    --sidebar-bg: #fcfaff; /* Фон сайдбару */
+    --sidebar-link-color: #6a5acd; /* Колір посилань сайдбару */
+    --sidebar-close-btn-color: #4a4a4a; /* Колір кнопки закриття сайдбару */
+    --open-sidebar-btn-bg: #e6e0eb; /* Колір кнопки відкриття сайдбару */
+    --overlay-color: rgba(0,0,0,0.5); /* Колір оверлею */
+
+    /* Box Shadows */
+    --shadow-light: rgba(0,0,0,0.05);
+    --shadow-medium: rgba(0,0,0,0.08);
+    --shadow-heavy: rgba(0,0,0,0.1);
+    --shadow-deep: rgba(0,0,0,0.15);
+    --shadow-accent: rgba(0,0,0,0.2);
+}
+
+/* Dark Theme Colors */
+body.dark-theme {
+    --body-bg: #282c34; /* Темний фон */
+    --text-color: #e0e0e0; /* Світлий текст */
+    --heading-color-light: #bb86fc; /* Яскравий фіолетовий для заголовків */
+    --heading-color-dark: #bb86fc; /* Те ж саме для H1 в темній темі */
+    --subtitle-color: #b0b0b0; /* Світліший для підзаголовка */
+    --main-bg: #3a3f4a;
+    --section-bg: #4a4e5a;
+    --header-bg-start: #32363e;
+    --header-bg-end: #2d313a;
+    --link-color: #bb86fc;
+    --link-hover-color: #8e5cdf;
+    --filter-btn-bg: #5a5f6e;
+    --filter-btn-text: #e0e0e0;
+    --filter-btn-active-bg: #9B59B6;
+    --filter-btn-active-text: white;
+    --footer-bg: #32363e;
+    --search-bg: #3a3f4a;
+    --search-icon-bg: #bb86fc;
+    --search-icon-hover-bg: #925ceb;
+    --search-text-color: #e0e0e0;
+    --date-color: #909090;
+    --divider-color: #555;
+    --sidebar-bg: #3a3f4a;
+    --sidebar-link-color: #bb86fc;
+    --sidebar-close-btn-color: #e0e0e0;
+    --open-sidebar-btn-bg: #5a5f6e;
+    --overlay-color: rgba(0,0,0,0.7);
+
+    /* Box Shadows for Dark Theme (slightly darker to be visible on dark bg) */
+    --shadow-light: rgba(0,0,0,0.2);
+    --shadow-medium: rgba(0,0,0,0.3);
+    --shadow-heavy: rgba(0,0,0,0.4);
+    --shadow-deep: rgba(0,0,0,0.5);
+    --shadow-accent: rgba(0,0,0,0.6);
+}
+
+/* Загальні налаштування */
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--body-bg);
+    color: var(--text-color);
+    line-height: 1.8;
+    text-align: center;
+    overflow-x: hidden; /* Приховуємо горизонтальну прокрутку */
+    transition: background-color 0.5s ease, color 0.5s ease; /* Плавний перехід кольорів */
+}
+
+/* Заголовки */
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--heading-color-light); /* Загальний для h1, h2 */
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+    transition: color 0.5s ease;
+}
+
+h1 {
+    font-size: 3.8em;
+    color: var(--heading-color-dark); /* Специфічний колір для h1 */
+    font-weight: 700;
+    text-shadow: 1px 1px 3px var(--shadow-light);
+}
+
+h2 {
+    font-size: 2.5em;
+    font-weight: 400;
+    margin-top: 40px;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: var(--subtitle-color);
+    margin-bottom: 60px;
+    font-weight: 300;
+}
+
+/* Шапка сторінки */
+header {
+    background: linear-gradient(to right, var(--header-bg-start), var(--header-bg-end));
+    padding: 80px 20px;
+    box-shadow: 0 4px 15px var(--shadow-medium);
+    position: relative; /* Щоб position: absolute для пошуку/теми працювало */
+    transition: background 0.5s ease, box-shadow 0.5s ease;
+    z-index: 20; /* Переконаємося, що header поверх всього, крім сайдбару/оверлею */
+}
+
+/* Основний контент */
+main {
+    padding: 60px 20px;
+    max-width: 960px;
+    margin: 60px auto;
+    background-color: var(--main-bg);
+    border-radius: 15px;
+    box-shadow: 0 12px 30px var(--shadow-heavy);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+    position: relative; /* Для контексту z-index */
+    z-index: 1;
+}
+
+/* Зміст та Фільтри */
+.content-section {
+    margin-bottom: 80px;
+    padding: 40px;
+    background-color: var(--section-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Навігація змісту */
+.poem-navigation ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.poem-navigation li {
+    background-color: var(--filter-btn-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow-light);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.poem-navigation li a {
+    display: block;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: var(--link-color);
+    font-weight: 600;
+    font-size: 1.05em;
+    transition: color 0.3s ease;
+}
+
+.poem-navigation li:hover {
+    background-color: var(--filter-btn-active-bg);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px var(--shadow-medium);
+}
+
+/* Фільтри */
+.filter-buttons {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.filter-btn {
+    background-color: var(--filter-btn-bg);
+    color: var(--filter-btn-text);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: 'Lato', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px var(--shadow-light);
+}
+
+.filter-btn:hover {
+    background-color: var(--filter-btn-active-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-medium);
+}
+
+.filter-btn.active {
+    background-color: var(--filter-btn-active-bg);
+    color: var(--filter-btn-active-text);
+    box-shadow: 0 4px 8px var(--shadow-deep);
+}
+
+/* Секція вірша */
+.poem-section {
+    margin-bottom: 80px;
+    padding: 50px;
+    background-color: var(--section-bg);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px var(--shadow-medium);
+    transition: transform 0.4s ease, opacity 0.4s ease, background-color 0.5s ease, box-shadow 0.5s ease;
+    opacity: 1;
+    display: block;
+}
+
+.poem-section.hidden {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    transition: opacity 0.4s ease, height 0.4s ease 0.2s, padding 0.4s ease 0.2s, margin 0.4s ease 0.2s;
+}
+
+.poem-title {
+    margin-bottom: 10px;
+    font-size: 2.2em;
+    color: var(--heading-color-light); /* Колір заголовка вірша */
+}
+
+.poem-meta {
+    font-size: 0.9em;
+    color: var(--date-color);
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.poem-text {
+    font-family: 'Playfair Display', serif; /* Шрифт для тексту вірша */
+    font-size: 1.15em;
+    text-align: left;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 10px;
+    color: var(--text-color); /* Колір тексту вірша */
+}
+
+.poem-text pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 0;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+/* Підвал */
+footer {
+    margin-top: 80px;
+    padding: 40px 20px;
+    background-color: var(--footer-bg);
+    color: var(--text-color);
+    font-size: 0.9em;
+    box-shadow: 0 -2px 10px var(--shadow-light);
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Анімації появи елементів (fade-in, delay-X) */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.fade-in.delay-1 { animation-delay: 0.3s; }
+.fade-in.delay-2 { animation-delay: 0.6s; }
+.fade-in.delay-3 { animation-delay: 0.9s; }
+.fade-in.delay-4 { animation-delay: 1.2s; }
+.fade-in.delay-5 { animation-delay: 1.5s; }
+.fade-in.delay-6 { animation-delay: 1.8s; }
+/* Продовжуйте .delay-X для кожного нового вірша */
+
+/* Пошуковий контейнер */
+.search-container {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 25px;
+    box-shadow: 0 2px 10px var(--shadow-light);
+    transition: all 0.4s ease-in-out, background-color 0.5s ease, box-shadow 0.5s ease;
+    width: 60px;
+    height: 45px;
+    background-color: var(--search-bg);
+    z-index: 100;
+}
+
+.search-container.active {
+    width: 300px;
+    box-shadow: 0 4px 15px var(--shadow-accent);
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    flex-grow: 1;
+    width: 0;
+    opacity: 0;
+    transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out, padding 0.4s ease-in-out, color 0.5s ease;
+    background: transparent;
+    color: var(--search-text-color);
+    font-family: 'Lato', sans-serif;
+}
+
+.search-container.active .search-input {
+    width: calc(100% - 60px);
+    opacity: 1;
+    padding-left: 20px;
+    padding-right: 5px;
+}
+
+.search-icon {
+    background-color: var(--search-icon-bg);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+}
+
+.search-icon:hover {
+    background-color: var(--search-icon-hover-bg);
+}
+
+.search-icon svg {
+    color: white; /* Лупа завжди біла */
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+/* Кнопка перемикання теми */
+.theme-toggle {
+    position: absolute;
+    top: 25px;
+    /* Adjusted right position to account for search container */
+    right: calc(25px + 300px + 15px); /* right: search-container.right + search-container.width.active + gap */
+    background-color: var(--filter-btn-bg);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    box-shadow: 0 2px 10px var(--shadow-light);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    z-index: 100;
+}
+
+.theme-toggle:hover {
+    background-color: var(--filter-btn-active-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-medium);
+}
+
+.theme-toggle svg {
+    width: 24px;
+    height: 24px;
+    color: var(--link-color);
+    transition: opacity 0.3s ease, transform 0.3s ease, color 0.5s ease;
+}
+
+.theme-toggle svg.sun-icon,
+.theme-toggle svg.moon-icon {
+    position: absolute;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.theme-toggle svg.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Кнопка "Нагору" */
+.scroll-to-top-btn {
+    display: none; /* За замовчуванням прихована */
+    position: fixed; /* Фіксована позиція на екрані */
+    bottom: 30px; /* Відступ знизу */
+    right: 30px; /* Відступ справа */
+    background-color: var(--filter-btn-active-bg); /* Колір кнопки, як активна кнопка фільтра */
+    color: white; /* Колір іконки */
+    border: none;
+    border-radius: 50%; /* Кругла форма */
+    width: 50px;
+    height: 50px;
+    font-size: 1.5em;
+    cursor: pointer;
+    box-shadow: 0 4px 12px var(--shadow-medium);
+    transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 999; /* Переконаємося, що вона поверх інших елементів */
+    display: flex; /* Для центрування SVG */
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Початкова прозорість для плавного зникнення/появи */
+    visibility: hidden; /* Початкова видимість */
+}
+
+.scroll-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top-btn:hover {
+    background-color: var(--heading-color-light); /* Трохи інший колір при наведенні */
+    transform: translateY(-3px); /* Легкий ефект підняття */
+    box-shadow: 0 6px 15px var(--shadow-deep);
+}
+
+.scroll-to-top-btn svg {
+    width: 24px;
+    height: 24px;
+    color: white; /* Колір стрілки */
+}
+
+/* Бічна панель (Sidebar) */
+.sidebar {
+    height: 100%; /* Повна висота */
+    width: 0; /* Прихована за замовчуванням */
+    position: fixed; /* Фіксована позиція */
+    z-index: 1000; /* Поверх усіх інших елементів */
+    top: 0;
+    left: 0;
+    background-color: var(--sidebar-bg);
+    overflow-x: hidden; /* Приховуємо горизонтальну прокрутку */
+    transition: 0.5s; /* Плавна анімація відкриття/закриття */
+    padding-top: 60px; /* Відступ зверху для контенту */
+    box-shadow: 2px 0 15px var(--shadow-heavy);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Розташування контенту та футера */
+    align-items: flex-start; /* Вирівнювання елементів в сайдбарі */
+}
+
+.sidebar.open {
+    width: 250px; /* Ширина відкритої панелі */
+}
+
+.sidebar-nav {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav ul li a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: var(--sidebar-link-color);
+    display: block;
+    transition: 0.3s ease;
+    text-align: left;
+    font-weight: 500;
+}
+
+.sidebar-nav ul li a:hover {
+    background-color: var(--filter-btn-active-bg);
+    color: var(--filter-btn-active-text);
+}
+
+.close-sidebar-btn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 3em;
+    color: var(--sidebar-close-btn-color);
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1; /* Для кращого вирівнювання "x" */
+    transition: 0.3s ease;
+}
+
+.close-sidebar-btn:hover {
+    color: var(--heading-color-light);
+    transform: rotate(90deg);
+}
+
+.sidebar-footer {
+    padding: 20px;
+    font-size: 0.8em;
+    color: var(--date-color); /* Використовуємо колір дати */
+    text-align: center;
+    width: 100%;
+    border-top: 1px solid var(--divider-color);
+    margin-top: auto; /* Притискає футер до низу сайдбару */
+}
+
+/* Кнопка відкриття гамбургер-меню */
+.open-sidebar-btn {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    background-color: var(--open-sidebar-btn-bg);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px var(--shadow-light);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    z-index: 100; /* Поверх всього в header */
+}
+
+.open-sidebar-btn:hover {
+    background-color: var(--filter-btn-active-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-medium);
+}
+
+.open-sidebar-btn svg {
+    color: var(--link-color); /* Колір іконки гамбургера */
+    width: 24px;
+    height: 24px;
+}
+
+/* Оверлей, що з'являється при відкритті сайдбару */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-color);
+    z-index: 900; /* Між сайдбаром (1000) та іншим контентом */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Прибираємо прокрутку тіла, коли сайдбар відкритий */
+body.sidebar-open {
+    overflow: hidden;
+}
+
+
+/* Адаптивність для мобільних пристроїв */
+@media (max-width: 768px) {
+    h1 { font-size: 2.8em; }
+    h2 { font-size: 2em; }
+    .subtitle { font-size: 1em; }
+    main { padding: 40px 15px; margin: 30px auto; }
+    .content-section { padding: 25px; margin-bottom: 50px; }
+    .poem-section { padding: 30px 20px; margin-bottom: 50px; }
+    .poem-text { font-size: 1em; padding: 0; }
+    .filter-btn { padding: 8px 15px; font-size: 0.9em; }
+    .poem-navigation li a { padding: 12px 20px; font-size: 0.95em; }
+
+    /* Адаптивність пошуку та перемикача теми на мобільних */
+    .search-container {
+        top: 15px;
+        right: 15px;
+        width: 50px;
+        height: 40px;
+    }
+
+    .search-container.active {
+        width: calc(100% - 30px);
+        right: 15px;
+    }
+
+    .search-input {
+        padding: 6px 8px;
+        font-size: 0.85em;
+    }
+
+    .search-container.active .search-input {
+        width: calc(100% - 50px);
+        padding-left: 15px;
+        padding-right: 5px;
+    }
+
+    .search-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .search-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .theme-toggle {
+        top: 15px;
+        left: 70px; /* Adjust this to be to the right of the open sidebar button */
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+    }
+    .theme-toggle svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Мобільні стилі для бічної панелі */
+    .sidebar.open {
+        width: 200px; /* Менша ширина на мобільних */
+    }
+    .open-sidebar-btn {
+        top: 15px;
+        left: 15px;
+        width: 40px;
+        height: 40px;
+    }
+    .open-sidebar-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Корекція для розміщення пошуку та перемикача теми на десктопах */
+@media (min-width: 769px) {
+    .theme-toggle {
+        right: 340px; /* Ensure this aligns it correctly relative to search on larger screens */
+    }
+}
+
+/* Стилі для кнопки "Вибране" на кожному вірші */
+.favorite-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 10px; /* Відступ від заголовка */
+    vertical-align: middle;
+    outline: none;
+}
+
+.favorite-btn svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--text-color); /* Колір контуру іконки, відповідно до теми */
+    fill: none; /* За замовчуванням не заповнене */
+    transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+/* Стиль для активної (вибраної) кнопки */
+.favorite-btn.active svg {
+    fill: var(--accent-color); /* Заповнити кольором, коли вірш вибраний */
+    stroke: var(--accent-color);
+}
+
+/* Додайте ці змінні, якщо їх ще немає в :root */
+:root {
+    --text-color: #333;
+    --background-color: #f4f4f4;
+    --accent-color: #e74c3c; /* Червоний для серця */
+    /* ... інші змінні ... */
+}
+
+/* Для темної теми */
+body.dark-theme {
+    --text-color: #f4f4f4;
+    --background-color: #333;
+    /* ... інші змінні ... */
+}
+
+#randomPoemBtn {
+    /* Наприклад, змінити колір, якщо хочете, щоб вона виділялась */
+    background-color: var(--accent-color); /* Можна використати той самий акцентний колір */
+    color: var(--background-color); /* Або білий текст */
+    border: 1px solid var(--accent-color);
+}
+
+#randomPoemBtn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.filter-buttons button {
+    /* Основні стилі для всіх кнопок фільтрів */
+    background-color: var(--button-bg-color); /* Наприклад, lightgray або ваш button-bg-color */
+    color: var(--button-text-color); /* Наприклад, #333 або ваш button-text-color */
+    border: 1px solid var(--border-color);
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.filter-buttons button:hover {
+    background-color: var(--button-hover-bg-color); /* Наприклад, #ddd */
+}
+
+/* Стиль для АКТИВНОЇ кнопки фільтра (вибраної) */
+.filter-buttons button.active {
+    background-color: var(--accent-color); /* Ваш акцентний колір */
+    color: white; /* Білий текст на акцентному фоні */
+    border-color: var(--accent-color);
+}
+
+/* Приклад змінних, якщо їх немає */
+:root {
+    --button-bg-color: #eee;
+    --button-text-color: #333;
+    --button-hover-bg-color: #ddd;
+    --border-color: #ccc;
+    --accent-color: #007bff; /* Приклад синього акценту */
+    /* ...інші ваші змінні... */
+}
+
+body.dark-theme {
+    --button-bg-color: #555;
+    --button-text-color: #f4f4f4;
+    --button-hover-bg-color: #666;
+    --border-color: #777;
+    --accent-color:  #9B59B6; /* Приклад зеленого акценту для темної теми */
+}
+
+/* Стилі для кнопки "Поділитися" на кожному вірші */
+.share-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 5px; /* Невеликий відступ від кнопки вибраного */
+    vertical-align: middle;
+    outline: none;
+}
+
+.share-btn svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--text-color); /* Колір контуру іконки, відповідно до теми */
+    fill: none;
+    transition: stroke 0.3s ease;
+}
+
+.share-btn:hover svg {
+    stroke: var(--accent-color); /* При наведенні курсору колір змінюється на акцентний */
+}
+
+/* Якщо у вас вже є такі змінні, не дублюйте їх */
+:root {
+    --text-color: #333;
+    --accent-color: #007bff; /* Використовуйте ваш бажаний акцентний колір */
+}
+
+body.dark-theme {
+    --text-color: #e0e0e0;
+    --accent-color: #8050af; /* Ваш фіолетовий або інший обраний акцентний колір для темної теми */
+}
+
+/* Стилі для контейнера зірочок */
+.poem-rating {
+    margin-top: 10px;
+    display: flex; /* Розміщуємо зірочки та текст в один рядок */
+    align-items: center;
+    gap: 8px; /* Простір між зірочками та текстом */
+    font-size: 1.1em;
+    color: var(--text-color); /* Колір тексту оцінки */
+}
+
+.poem-rating .total-rating {
+    font-size: 0.9em;
+    color: var(--subtitle-color);
+}
+
+/* Стилі для самих зірочок */
+.stars {
+    display: inline-block;
+    cursor: pointer;
+    white-space: nowrap; /* Щоб зірочки не переносилися на новий рядок */
+}
+
+.star {
+    font-size: 1.8em; /* Розмір зірочки */
+    color: #ccc; /* Колір незаповненої зірочки */
+    transition: color 0.2s ease;
+    user-select: none; /* Забороняємо виділення тексту зірочок */
+}
+
+/* Колір зірочок при наведенні курсору */
+.star.hover,
+.star:hover ~ .star { /* Це правило забезпечує підсвічування всіх попередніх зірочок при наведенні */
+    color: #FFD700; /* Золотий колір для наведення */
+}
+
+/* Колір зірочок, які вже були оцінені користувачем */
+.star.rated {
+    color: #FFC107; /* Яскравіший золотий для оцінених */
+}
+
+/* Якщо ви хочете, щоб при наведенні на оцінену зірочку вона та попередні теж підсвічувалися */
+.star.rated.hover,
+.star.rated:hover ~ .star.rated {
+    color: #FFD700;
+}
+
+
+/* Додаткові змінні, якщо їх немає */
+:root {
+    --text-color: #333;
+    --subtitle-color: #666;
+    /* ... інші ваші змінні ... */
+}
+
+body.dark-theme {
+    --text-color: #e0e0e0;
+    --subtitle-color: #b0b0b0;
+    /* ... інші ваші змінні ... */
+}
+
+/* Стилі для кнопки "Прочитано" */
+.read-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 5px; /* Невеликий відступ від попереднього елементу */
+    vertical-align: middle;
+    outline: none;
+    position: relative; /* Для підказки */
+}
+
+.read-btn svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--subtitle-color); /* Колір контуру іконки, за замовчуванням сірий */
+    fill: none;
+    transition: stroke 0.3s ease, fill 0.3s ease;
+}
+
+.read-btn:hover svg {
+    stroke: var(--accent-color); /* При наведенні курсору колір змінюється на акцентний */
+}
+
+/* Стиль для активної (прочитаної) кнопки */
+.read-btn.active svg {
+    stroke: var(--accent-color); /* Акцентний колір для контуру */
+    fill: var(--accent-color); /* Заповнюємо іконку акцентним кольором */
+}
+
+/* Стилі для прочитаних віршів */
+.poem-section.read-poem {
+    opacity: 0.7; /* Зробимо вірш трохи блідішим */
+    transition: opacity 0.3s ease;
+}
+
+/* Стилі для прочитаних елементів у змісті */
+.sidebar #toc-list li.read-poem-toc a {
+    color: var(--subtitle-color); /* Зробимо текст сірішим */
+    font-style: italic; /* Можна додати курсив */
+    text-decoration: line-through; /* Або закреслити */
+    opacity: 0.8;
+    transition: color 0.3s ease, font-style 0.3s ease, text-decoration 0.3s ease, opacity 0.3s ease;
+}
+
+/* При наведенні на прочитаний елемент змісту, повертаємо нормальний вигляд */
+.sidebar #toc-list li.read-poem-toc a:hover {
+    color: var(--link-hover-color);
+    font-style: normal;
+    text-decoration: none;
+    opacity: 1;
+}
+
+/* Додаткові змінні, якщо їх немає */
+:root {
+    --subtitle-color: #666; /* Колір для підзаголовків та неактивних елементів */
+    --accent-color: #8050af; /* Ваш бажаний акцентний колір */
+    --link-hover-color: #be90ff; /* Колір посилань при наведенні */
+}
+
+body.dark-theme {
+    --subtitle-color: #b0b0b0;
+    --accent-color: #8050af; /* Ваш фіолетовий або інший обраний акцентний колір для темної теми */
+    --link-hover-color: #be90ff;
+}
+
+/* Стилі для контейнера результатів пошуку (підказок) */
+.search-results-container {
+    position: absolute; /* Розміщуємо відносно .search-container */
+    top: 100%; /* Розміщуємо під полем пошуку */
+    left: 0;
+    right: 0;
+    max-height: 250px; /* Обмежуємо висоту для прокрутки */
+    overflow-y: auto; /* Дозволяємо прокрутку, якщо багато результатів */
+    background-color: var(--background-color-secondary);
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100; /* Перекриває інші елементи */
+    display: none; /* За замовчуванням прихований */
+    padding: 5px 0;
+}
+
+/* Стилі для окремої підказки в списку */
+.search-result-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    color: var(--text-color);
+    white-space: nowrap; /* Запобігає переносу тексту */
+    overflow: hidden; /* Приховує надлишковий текст */
+    text-overflow: ellipsis; /* Додає три крапки, якщо текст не влазить */
+}
+
+.search-result-item:hover {
+    background-color: var(--link-hover-color);
+    color: var(--button-text-color); /* Змінюємо колір тексту при наведенні */
+}
+
+/* Стилі для активної (набраної з клавіатури) підказки */
+.search-result-item.active-selection {
+    background-color: var(--accent-color); /* Або інший акцентний колір */
+    color: var(--button-text-color);
+}
+
+/* Приховуємо скроллбар для контейнера в Firefox */
+.search-results-container {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) var(--background-color-secondary);
+}
+
+/* Приховуємо скроллбар для контейнера в Webkit (Chrome, Safari) */
+.search-results-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.search-results-container::-webkit-scrollbar-track {
+    background: var(--background-color-secondary);
+    border-radius: 10px;
+}
+
+.search-results-container::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 10px;
+}
+
+/* Додаткові стилі для search-container, якщо він не `position: relative;` */
+.search-container {
+    position: relative; /* Це важливо для коректного позиціонування підказок */
+    /* ... інші стилі для search-container ... */
+}
+
+/* ======================== */
+/* Пошукова панель */
+/* ======================== */
+.search-container {
+    position: relative; /* Для позиціонування підказок */
+    width: 80%; /* Або інша бажана ширина */
+    max-width: 500px;
+    margin: 30px auto; /* Центрування та відступи */
+    display: flex;
+    align-items: center;
+    background-color: var(--background-color-secondary); /* Фон контейнера */
+    border-radius: 50px; /* Круглі кути */
+    box-shadow: var(--box-shadow); /* Тінь */
+    overflow: hidden; /* Щоб підказки не виходили за межі */
+    transition: all 0.3s ease;
+}
+
+/* При активному пошуку */
+.search-container.active {
+    border-radius: 10px; /* При відкритті може стати більш прямокутним */
+    box-shadow: 0 0 0 3px var(--accent-color); /* Обведення акцентним кольором */
+}
+
+.search-container #searchInput {
+    flex-grow: 1; /* Займає весь доступний простір */
+    border: none;
+    background: transparent;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    color: var(--text-color);
+    outline: none; /* Прибрати стандартне обведення при фокусі */
+    width: 100%; /* Займає 100% ширини контейнера */
+}
+
+.search-container #searchInput::placeholder {
+    color: var(--text-color-light); /* Колір плейсхолдера */
+}
+
+.search-container .search-icon {
+    display: flex; /* Для центрування іконки */
+    align-items: center;
+    justify-content: center;
+    width: 50px; /* Ширина іконки */
+    height: 50px; /* Висота іконки */
+    background-color: var(--accent-color); /* Колір фону іконки */
+    color: var(--button-text-color); /* Колір самої іконки */
+    border-radius: 50%; /* Кругла форма */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    flex-shrink: 0; /* Щоб не стискався */
+}
+
+.search-container.active .search-icon {
+    border-radius: 8px; /* Може змінити форму при активності */
+    /* background-color: var(--link-hover-color); */ /* Можна змінити колір, якщо потрібно */
+}
+
+.search-container .search-icon:hover {
+    background-color: var(--link-hover-color);
+    transform: scale(1.05);
+}
+
+.search-container .search-icon:active {
+    transform: scale(0.95);
+}
+
+.search-container .search-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Стилі для темної теми */
+body.dark-theme .search-container {
+    background-color: var(--background-color-secondary);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-theme .search-container #searchInput {
+    color: var(--text-color);
+}
+
+body.dark-theme .search-container #searchInput::placeholder {
+    color: var(--text-color-light);
+}
+
+body.dark-theme .search-container .search-icon {
+    background-color: var(--accent-color);
+    color: var(--button-text-color);
+}
+
+/* Стилі для тимчасового виділення вірша при пошуку */
+.poem-section.highlight-poem {
+    animation: highlight 2s ease-out; /* Анімація виділення */
+}
+
+@keyframes highlight {
+    0% {
+        box-shadow: 0 0 15px 5px rgba(255, 255, 0, 0.7); /* Жовтий відтінок */
+        border-color: yellow;
+    }
+    100% {
+        box-shadow: none;
+        border-color: var(--border-color);
+    }
+}
+
+/* Для темної теми, якщо потрібно інший колір виділення */
+body.dark-theme .poem-section.highlight-poem {
+    animation: highlight-dark 2s ease-out;
+}
+
+@keyframes highlight-dark {
+    0% {
+        box-shadow: 0 0 15px 5px rgba(255, 255, 0, 0.7); /* Або інший колір, наприклад, блакитний для темної теми */
+        border-color: #007bff; /* Можна підібрати під акцентний колір */
+    }
+    100% {
+        box-shadow: none;
+        border-color: var(--border-color);
+    }
+}
